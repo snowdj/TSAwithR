@@ -1,3 +1,11 @@
+#5.2.3
+set.seed(1)
+z<-w<-rnorm(100,sd=20)
+for (t in 2:100) z[t] <- 0.8*z[t-1]+ w[t]
+Time <-1:100
+x<-50 +3*Time +z
+plot(x,xlab ="time",type="l")
+
 #5.4.1 GLS fit to simulated series
 
 library(nlme)
