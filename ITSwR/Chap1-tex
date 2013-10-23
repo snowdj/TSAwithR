@@ -1,7 +1,10 @@
 Section 1.5 Decomposition of series
 
+%------------------------------------------------------------------------%
 Additive decomposition model
 
 \[ x_t = m_t + s_t+ z_t\]
 
 observed series is the sum of the trend term, seasonal effect term and error term.
+
+%------------------------------------------------------------------------%
