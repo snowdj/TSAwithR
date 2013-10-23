@@ -6,7 +6,7 @@ AP.decom - decompose(AP, “multiplicative”)
 plot(ts(AP.decom$random[7:138]))
 acf(AP.decom$random[7:138])
 
-
+################################################################
 
 #Section 2.3.3. Example based on the Font Reservoir series
 
