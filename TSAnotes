@@ -1,0 +1,44 @@
+% http://people.su.se/~ma/R_intro/R_intro.pdf
+
+Time-series
+Data in rows
+Time-series data often appear in a form where series are in rows. As an example
+I use data from the Swedish Consumer Surveys by the National Institute of
+Economic Research containing three series: consumer condence index, a macro
+index and a micro index.
+First I saved the original data in a le in text-format. Before using the data as
+input in R I used a text editor and kept only the values for the rst three series
+separated with spaces. The series are in rows. The values of the three series are
+listed in separate rows without variable names.
+To read this le <macro.txt>, the following code puts the data in a matrix of
+3 columns and 129 rows with help of <scan> and <matrix> before dening a
+time-series object starting in 1993 with frequency 12 (monthly). The series are
+named as <cci>,<macro.index> and <micro.index>. Notice that <matrix>
+by default lls in data by columns.
+
+\begin{verbatim}
+> FILE <- "http://people.su.se/~ma/R_intro/macro.txt"
+> macro <- ts(matrix(scan(FILE), 129, 3), start = 1993,
++ frequency = 12, names = c("cci", "macro.index",
++ "micro.index"))
+\end{verbatim}
+Here I give an example for creating lag values of a variable and adding it to a
+time-series data set. See also <diff> for computing dierences.
+Let us create a new time series data set, with the series in the data frame
+<macro> adding lagged <cci> (lagged by 1 month). The function <ts.union>
+puts together the series keeping all observations while <ts.intersect> would
+keep only the overlapping part of the series.
+> macro2 <- ts.union(macro, l.cci = lag(macro[,
++ 1], -1))
+You can use the function aggregate to change the frequency of you time-series
+data. The following example converts the frequency data. nfrequency=1 yields
+annual data. FUN=mean computes the average of the variables over time. The
+default is <sum>.
+> aggregate(macro, nfrequency = 1, FUN = mean)
+Time Series:
+Start = 1993
+End = 2002
+Frequency = 1
+cci macro.index micro.index
+1993 -19.7583333 -33.3833333 -13.241667
+1994 -0.2916667 14.1666667 -5.158333
