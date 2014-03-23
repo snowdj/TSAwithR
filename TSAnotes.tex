@@ -1,16 +1,19 @@
 % http://people.su.se/~ma/R_intro/R_intro.pdf
 
 Time-series
-Data in rows
+
+### Data in rows
 Time-series data often appear in a form where series are in rows. As an example
 I use data from the Swedish Consumer Surveys by the National Institute of
 Economic Research containing three series: consumer condence index, a macro
 index and a micro index.
-First I saved the original data in a le in text-format. Before using the data as
+
+First I saved the original data in a file in text-format. Before using the data as
 input in R I used a text editor and kept only the values for the rst three series
 separated with spaces. The series are in rows. The values of the three series are
 listed in separate rows without variable names.
-To read this le <macro.txt>, the following code puts the data in a matrix of
+
+To read this file <macro.txt>, the following code puts the data in a matrix of
 3 columns and 129 rows with help of <scan> and <matrix> before dening a
 time-series object starting in 1993 with frequency 12 (monthly). The series are
 named as <cci>,<macro.index> and <micro.index>. Notice that <matrix>
