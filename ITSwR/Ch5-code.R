@@ -1,3 +1,4 @@
+#############################################################
 #5.2.3
 set.seed(1)
 z<-w<-rnorm(100,sd=20)
@@ -6,6 +7,7 @@ Time <-1:100
 x<-50 +3*Time +z
 plot(x,xlab ="time",type="l")
 
+#############################################################
 #5.4.1 GLS fit to simulated series
 
 library(nlme)
@@ -16,12 +18,12 @@ coef(x.gls)
 
 temp.gls <-gls(temp~time(temp,cor=corAR1(0.7))
 confint(temp.gls)
-
+#############################################################
 #5.5.3
 
 new.dat <- data.frame(Time=new.t,Seas=rep(1:12,2))
 predict(temp.lm,new.dat)[1:24]
-
+#############################################################
 #5.6.1 Simulation
 
 set.seed(1)
@@ -32,3 +34,4 @@ Seasonal <- sin(2*pi*TIME/12) + 0.2*sin(2*pi*2*TIME/12)
 + 0.1*sin(2*pi*4*TIME/12) + 0.1*cos(2*pi*4*TIME/12) 
 x <-Trend + Seasonal + w
 plot(x,type ="l")
+#############################################################
