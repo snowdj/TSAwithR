@@ -1,10 +1,10 @@
-Section 1.4.1 [ page 7 ]
+############################################################## Section 1.4.1 [ page 7 ]
 
 Layout(1:2)
 plot(aggregate(AP))
 boxplot(AP ~ cycle(AP))
-
-Section 1.4.5 Global Temperature Series
+#############################################################
+#Section 1.4.5 Global Temperature Series
 
 www <- “http://www.massey.ac.nz/~pacowper/ts/global.dat”
 Global <-scan(www)
@@ -13,13 +13,13 @@ Global.annual <-aggregate(Global.ts, FUN = mean)
 plot(Global.ts)
 plot(Global.annual)
 
-
+#############################################################
 New.series <- window(Global.ts, start=c(1970,1), end=c(2005,12))
 New.time <- time(New.series)
 plot(New.series)
 abline(reg=lm(New.series ~ New.time))
 
-Section 1.5.5 Decomposition in R
+# Section 1.5.5 Decomposition in R
 
 plot(decompose(Elec.ts))
 Elec.decom <- decompose(Elec.ts , type=”mult”)
@@ -29,9 +29,9 @@ Seasonal <- Elec.decom$seasonal
 ts.plot(cbind(Trend, Trend * Seasonal),lty=1:2)
 
 
+#############################################################
 
-
-Section 3.3.2. Building Approvals Publication
+# Section 3.3.2. Building Approvals Publication
 
 www <- “http://www.massey.ac.nz/~pacowper/ts/ApprovActiv.dat”
 Built.dat <- read.table(www, header = T)
