@@ -1,3 +1,4 @@
+############################################################################################
 #9.5.1  Nyquist frequency
 t<-(0:10)/5
 tc<-(0:2000)/1000
@@ -7,7 +8,7 @@ xa<-sin(-4*2*pi*tc)
 plot(t,x)
 lines(tx,xc)
 lines(tc,xa,lty ="dashed")
-
+############################################################################################
 #9.6.1 Wavetank data
 www <-scan("MASSEY/wave.dat")
 wavetank.dat <-read.table(www,header= T)
@@ -17,6 +18,7 @@ plot(as.ts(wave.ht))
 acf(waveht)
 spectrum(acf)
 
+############################################################################################
 #9.6.2
 www <-scan("MASSEY/imotor.dat")
 imotor.dat <-read.table(www,header= T)
@@ -45,7 +47,7 @@ layout(1:3)
 plot(soi.ts)
 soi.spec <-spectrum(SOI,span=sqrt(2*length(SOI)) )
 plot(soi.spec$freq[1:60],soi.spec$spec[1:60],type="l")
-
+############################################################################################
 #9.6.4
 #Pacific Decadal Oscillation (PDO) Index
 
@@ -56,4 +58,4 @@ pdo.ts<-ts(PDO,st=c(1900,1), end=c(2007,11,fr=12)
 layout(1:2)
 plot(pdo.ts)
 spectrum(PDO,span=sqrt(2*length(PDO)) )
-
+############################################################################################
